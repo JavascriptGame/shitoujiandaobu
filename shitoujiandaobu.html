@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="all">
+        <img src="img/shitou.jpg" class="shitou" alt="">
+        <img src="img/jiandao.jpg" class="jiandao" alt="">
+        <img src="img/bu.jpg" class="bu" alt="">
+    </div>
+    <div class="game">
+        <img src="" class="yourImg" alt="">
+        <span class="result"></span>
+        <img src="" class="pcImg" alt="">
+    </div>
+    <script>
+
+        window.onload = function () {
+            // 选择图片
+            var shitou = document.querySelector('.shitou'),
+                jiandao = document.querySelector('.jiandao'),
+                bu = document.querySelector('.bu'),
+                yourImg = document.querySelector('.yourImg'),
+                pcImg = document.querySelector('.pcImg'),
+                result = document.querySelector('.result'),
+                random ='';
+            shitou.addEventListener('click',function () {
+                yourImg.src = 'img/shitou.jpg';
+                random = Math.random();
+                if (random < 0.33) {
+                    pcImg.src = 'img/jiandao.jpg';
+                    result.innerHTML = '你赢了';
+                } else if (0.33 < random < 0.66) {
+                    pcImg.src = 'img/shitou.jpg';
+                    result.innerHTML('平');
+                } else if (0.66 < random < 1) {
+                    pcImg.src = 'img/bu.jpg';
+                    result.innerHTML = '你输了';
+                }
+            },false);
+            jiandao.addEventListener('click',function () {
+                yourImg.src = 'img/jiandao.jpg';
+                random = Math.random();
+                if (random < 0.33) {
+                    pcImg.src = 'img/jiandao.jpg';
+                    result.innerHTML = '平';
+                } else if (0.33 < random < 0.66) {
+                    pcImg.src = 'img/shitou.jpg';
+                    result.innerHTML = '你输了';
+                } else if (0.66 < random < 1) {
+                    pcImg.src = 'img/bu.jpg';
+                    result.innerHTML ='你赢了';
+                }
+            },false);
+            bu.addEventListener('click',function () {
+                yourImg.src = 'img/bu.jpg';
+                random = Math.random();
+                if (random < 0.33) {
+                    pcImg.src = 'img/jiandao.jpg';
+                    result.innerHTML = '你输了';
+                } else if (0.33 < random < 0.66) {
+                    pcImg.src = 'img/shitou.jpg';
+                    result.innerHTML ='你熟了';
+                } else if (0.66 < random < 1) {
+                    pcImg.src = 'img/bu.jpg';
+                    result.innerHTML ='平';
+                }
+            },false)
+        }
+    </script>
+</body>
+</html>
